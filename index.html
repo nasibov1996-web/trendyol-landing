@@ -7,11 +7,11 @@
 
   <style>
     :root{
-      --bg:#fff4ec;          /* full page background */
+      --bg:#fff4ec;
       --card:#ffffff;
       --text:#1f1f1f;
       --muted:#5a5a5a;
-      --orange:#ff6a00;      /* Trendyol vibe */
+      --orange:#ff6a00;
       --pink:#ff3d8b;
       --shadow: 0 10px 30px rgba(0,0,0,0.10);
       --radius: 22px;
@@ -25,7 +25,6 @@
       color: var(--text);
     }
 
-    /* Full-width hero banner */
     .hero{
       position: relative;
       overflow: hidden;
@@ -34,15 +33,14 @@
         radial-gradient(1200px 400px at 10% 0%, rgba(255,255,255,0.45), rgba(255,255,255,0) 60%),
         linear-gradient(135deg, var(--orange), var(--pink));
       color: #fff;
+      text-align: center;
     }
 
-    /* Decorative circles */
     .hero::before,
     .hero::after{
       content:"";
       position:absolute;
       border-radius:999px;
-      filter: blur(0px);
       opacity: 0.25;
       background: rgba(255,255,255,0.9);
     }
@@ -60,27 +58,6 @@
       margin: 0 auto;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      justify-content: center;
-      gap: 10px;
-      text-align:center;
-    }
-
-    .logoBadge{
-      width: 44px; height: 44px;
-      border-radius: 14px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.22);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-      backdrop-filter: blur(8px);
-      font-size: 22px;
-    }
-
     h1{
       margin: 0;
       font-size: 30px;
@@ -92,13 +69,12 @@
     .subtitle{
       margin: 14px auto 0;
       max-width: 560px;
-      text-align:center;
       font-size: 15.5px;
       line-height: 1.6;
       opacity: 0.95;
     }
 
-    /* Top CTA (visible without scroll) */
+    /* CTA */
     .ctaRow{
       margin-top: 18px;
       display:flex;
@@ -107,8 +83,7 @@
     .cta{
       display:inline-flex;
       align-items:center;
-      justify-content:center;
-      gap:10px;
+      justify-content:center; /* center text */
       padding: 14px 18px;
       border-radius: 16px;
       background: #fff;
@@ -117,9 +92,9 @@
       font-weight: 800;
       font-size: 16.5px;
       box-shadow: 0 12px 25px rgba(0,0,0,0.18);
-      transform: translateY(0);
       transition: transform .15s ease, box-shadow .15s ease;
       width: min(520px, 92vw);
+      text-align:center;
     }
     .cta:hover{
       transform: translateY(-2px);
@@ -128,12 +103,10 @@
 
     .micro{
       margin: 10px auto 0;
-      text-align:center;
       font-size: 12.5px;
       opacity: 0.92;
     }
 
-    /* Content area */
     .content{
       padding: 16px 18px 36px;
     }
@@ -153,24 +126,11 @@
     }
 
     .cardTitle{
-      display:flex;
-      align-items:center;
-      gap:10px;
       margin: 0 0 10px;
       font-size: 18px;
       color: #111;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: #fff1e8;
-      color: #3b2a22;
-      font-size: 13px;
-      font-weight: 700;
+      text-align: center; /* centered titles */
+      font-weight: 900;
     }
 
     .list{
@@ -208,16 +168,19 @@
       border: 1px solid rgba(0,176,80,0.25);
     }
 
-    .safe p, .muted{
+    .muted{
       margin: 0;
       color: var(--muted);
       line-height: 1.65;
       font-size: 14px;
+      text-align: center; /* centered paragraphs in these sections */
     }
 
     .contact{
       display:grid;
       gap: 10px;
+      justify-items: center;
+      text-align:center;
     }
 
     .linkRow{
@@ -225,6 +188,7 @@
       flex-wrap:wrap;
       gap: 10px;
       margin-top: 10px;
+      justify-content:center;
     }
     .linkBtn{
       display:inline-flex;
@@ -249,7 +213,6 @@
       line-height: 1.5;
     }
 
-    /* Make hero button always easy on small screens */
     @media (max-width: 420px){
       h1{ font-size: 26px; }
       .subtitle{ font-size: 14.5px; }
@@ -261,23 +224,18 @@
 
 <body>
 
-  <!-- HERO / BANNER -->
   <header class="hero">
     <div class="wrap">
-      <div class="brand">
-        <div class="logoBadge">🛍️</div>
-        <h1>Trendyol Alış-Veriş Sirləri 💖</h1>
-      </div>
+      <h1>Trendyol Alış-Veriş Sirləri 💖</h1>
 
       <p class="subtitle">
         Qadın geyimləri üçün <b>endirim kodları</b>, <b>kampaniyalar</b> və seçilmiş
-        <b>əndirimli məhsul</b> linklərini paylaşdığım WhatsApp kanalına qoşulun.
+        <b>endirimli məhsul</b> linklərini paylaşdığım WhatsApp kanalına qoşulun.
       </p>
 
       <div class="ctaRow">
         <a class="cta" href="https://whatsapp.com/channel/0029Vb7RTuMGOj9sVCgCfm3J" target="_blank" rel="noopener">
-          💖 Kanala Abunə Ol
-          <span style="margin-left:auto; opacity:.8;">→</span>
+          Kanala Abunə Ol
         </a>
       </div>
 
@@ -287,15 +245,12 @@
     </div>
   </header>
 
-  <!-- CONTENT -->
   <main class="content">
     <div class="wrap">
       <div class="grid">
 
         <section class="card">
-          <div class="cardTitle">
-            <span class="pill">✨ Nələr paylaşılır?</span>
-          </div>
+          <h2 class="cardTitle">Nələr paylaşılır?</h2>
 
           <ul class="list">
             <li><span class="bullet">👗</span> Qadın geyimləri üçün endirimli seçimlər və “best price” tapıntılar</li>
@@ -307,28 +262,22 @@
         </section>
 
         <section class="card safe">
-          <div class="cardTitle">
-            <span class="pill">✅ Təhlükəsizlik</span>
-          </div>
+          <h2 class="cardTitle">Təhlükəsizlik</h2>
           <p class="muted">
-            Biz heç vaxt sizdən <b>kart məlumatı</b>, <b>şifrə</b>, <b>OTP</b> və ya bankla bağlı heç nə istəmirik.
+            Biz heç vaxt sizdən <b>kart məlumatı</b>, <b>şifrə</b>, <b>OTP</b> istəmirik.
             Kanal yalnız endirim və kampaniya paylaşımı üçündür. Şübhəli “giriş/təsdiq” linkləri göndərilmir.
           </p>
         </section>
 
         <section class="card">
-          <div class="cardTitle">
-            <span class="pill">📌 Əlaqə & Sosial</span>
-          </div>
+          <h2 class="cardTitle">Əlaqə</h2>
 
           <div class="contact">
-            <p class="muted">
-              Sualınız olarsa əlaqə saxlaya bilərsiniz:
-            </p>
+            <p class="muted">Sualınız olarsa əlaqə saxlaya bilərsiniz:</p>
 
             <div class="linkRow">
-              <a class="linkBtn" href="mailto:nasibov.mahammad13@gmail.com">📩 nasibov.mahammad13@gmail.com</a>
-              <a class="linkBtn" href="https://www.instagram.com/hemiidiary/" target="_blank" rel="noopener">📷 Instagram: @hemiidiary</a>
+              <a class="linkBtn" href="mailto:mhamida00@mail.ru">mhamida00@mail.ru</a>
+              <a class="linkBtn" href="https://www.instagram.com/hemiidiary/" target="_blank" rel="noopener">Instagram: @hemiidiary</a>
             </div>
 
             <p class="muted" style="margin-top:8px;">

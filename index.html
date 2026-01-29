@@ -3,157 +3,347 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
   <title>Trendyol Alış-Veriş Sirləri 💖</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #fff7f2;
-      color: #222;
+    :root{
+      --bg:#fff4ec;          /* full page background */
+      --card:#ffffff;
+      --text:#1f1f1f;
+      --muted:#5a5a5a;
+      --orange:#ff6a00;      /* Trendyol vibe */
+      --pink:#ff3d8b;
+      --shadow: 0 10px 30px rgba(0,0,0,0.10);
+      --radius: 22px;
     }
 
-    .hero {
-      background: linear-gradient(135deg, #ff6a00, #ff3d8b);
-      padding: 50px 20px;
-      text-align: center;
-      color: white;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
     }
 
-    .hero h1 {
+    /* Full-width hero banner */
+    .hero{
+      position: relative;
+      overflow: hidden;
+      padding: 56px 18px 26px;
+      background:
+        radial-gradient(1200px 400px at 10% 0%, rgba(255,255,255,0.45), rgba(255,255,255,0) 60%),
+        linear-gradient(135deg, var(--orange), var(--pink));
+      color: #fff;
+    }
+
+    /* Decorative circles */
+    .hero::before,
+    .hero::after{
+      content:"";
+      position:absolute;
+      border-radius:999px;
+      filter: blur(0px);
+      opacity: 0.25;
+      background: rgba(255,255,255,0.9);
+    }
+    .hero::before{
+      width: 220px; height: 220px;
+      top: -70px; right: -60px;
+    }
+    .hero::after{
+      width: 160px; height: 160px;
+      bottom: -70px; left: -60px;
+    }
+
+    .wrap{
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content: center;
+      gap: 10px;
+      text-align:center;
+    }
+
+    .logoBadge{
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+      backdrop-filter: blur(8px);
+      font-size: 22px;
+    }
+
+    h1{
       margin: 0;
       font-size: 30px;
-      font-weight: 800;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      line-height: 1.15;
     }
 
-    .hero p {
-      margin-top: 12px;
-      font-size: 16px;
+    .subtitle{
+      margin: 14px auto 0;
+      max-width: 560px;
+      text-align:center;
+      font-size: 15.5px;
+      line-height: 1.6;
       opacity: 0.95;
-      line-height: 1.6;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
-    .cta-btn {
-      display: inline-block;
-      margin-top: 22px;
-      padding: 16px 26px;
-      background: white;
-      color: #ff6a00;
+    /* Top CTA (visible without scroll) */
+    .ctaRow{
+      margin-top: 18px;
+      display:flex;
+      justify-content:center;
+    }
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      background: #fff;
+      color: var(--orange);
+      text-decoration:none;
+      font-weight: 800;
+      font-size: 16.5px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+      transform: translateY(0);
+      transition: transform .15s ease, box-shadow .15s ease;
+      width: min(520px, 92vw);
+    }
+    .cta:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.22);
+    }
+
+    .micro{
+      margin: 10px auto 0;
+      text-align:center;
+      font-size: 12.5px;
+      opacity: 0.92;
+    }
+
+    /* Content area */
+    .content{
+      padding: 16px 18px 36px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: -18px;
+    }
+
+    .card{
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .cardTitle{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin: 0 0 10px;
       font-size: 18px;
-      font-weight: bold;
-      border-radius: 14px;
-      text-decoration: none;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-      transition: 0.2s;
+      color: #111;
     }
 
-    .cta-btn:hover {
-      transform: scale(1.03);
-    }
-
-    .container {
-      max-width: 700px;
-      margin: -30px auto 40px auto;
-      padding: 0 18px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 18px;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      color: #ff6a00;
-      font-size: 20px;
-    }
-
-    .list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .list li {
-      padding: 10px;
-      border-radius: 12px;
-      margin: 10px 0;
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
       background: #fff1e8;
-      font-size: 15px;
-    }
-
-    .safe {
-      background: #eafff1;
-      border-left: 5px solid #00b050;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
+      color: #3b2a22;
       font-size: 13px;
-      color: #777;
-      padding: 25px 10px;
+      font-weight: 700;
     }
 
-    /* Mobile optimization */
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 26px;
-      }
-      .cta-btn {
-        width: 90%;
-        max-width: 320px;
-      }
+    .list{
+      margin: 10px 0 0;
+      padding: 0;
+      list-style:none;
+      display:grid;
+      gap: 10px;
+    }
+    .list li{
+      background: #fff6f0;
+      border: 1px solid rgba(255,106,0,0.14);
+      border-radius: 16px;
+      padding: 12px 12px;
+      font-size: 14.5px;
+      line-height: 1.5;
+      color: #2a2a2a;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .bullet{
+      width: 28px; height: 28px;
+      border-radius: 10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(255,106,0,0.12);
+      flex: 0 0 28px;
+      margin-top: 1px;
+    }
+
+    .safe{
+      background: #eafff1;
+      border: 1px solid rgba(0,176,80,0.25);
+    }
+
+    .safe p, .muted{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .contact{
+      display:grid;
+      gap: 10px;
+    }
+
+    .linkRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .linkBtn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #f7f7f7;
+      border: 1px solid rgba(0,0,0,0.06);
+      text-decoration:none;
+      color: #111;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .linkBtn:hover{ filter: brightness(0.98); }
+
+    footer{
+      text-align:center;
+      padding: 18px 14px 30px;
+      color: #7a5a4b;
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+
+    /* Make hero button always easy on small screens */
+    @media (max-width: 420px){
+      h1{ font-size: 26px; }
+      .subtitle{ font-size: 14.5px; }
+      .cta{ font-size: 16px; }
+      .card{ padding: 16px; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HERO SECTION -->
-  <div class="hero">
-    <h1>Trendyol Alış-Veriş Sirləri 💖</h1>
+  <!-- HERO / BANNER -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="brand">
+        <div class="logoBadge">🛍️</div>
+        <h1>Trendyol Alış-Veriş Sirləri 💖</h1>
+      </div>
 
-    <p>
-      Qadın geyimləri üçün ən yaxşı <b>endirim kodları</b>, kampaniyalar və
-      seçilmiş məhsullar burada paylaşılır.
-    </p>
+      <p class="subtitle">
+        Qadın geyimləri üçün <b>endirim kodları</b>, <b>kampaniyalar</b> və seçilmiş
+        <b>əndirimli məhsul</b> linklərini paylaşdığım WhatsApp kanalına qoşulun.
+      </p>
 
-    <!-- BUTTON TOP -->
-    <a class="cta-btn"
-      href="https://whatsapp.com/channel/0029Vb7RTuMGOj9sVCgCfm3J"
-      target="_blank">
-      💖 Kanala Abunə Ol
-    </a>
+      <div class="ctaRow">
+        <a class="cta" href="https://whatsapp.com/channel/0029Vb7RTuMGOj9sVCgCfm3J" target="_blank" rel="noopener">
+          💖 Kanala Abunə Ol
+          <span style="margin-left:auto; opacity:.8;">→</span>
+        </a>
+      </div>
 
-    <p style="margin-top:15px;font-size:13px;opacity:0.9;">
-      Klik etdikdən sonra WhatsApp-da <b>View Channel</b> → Follow edin
-    </p>
-  </div>
+      <div class="micro">
+        Klikdən sonra WhatsApp-da <b>View Channel</b> → <b>Follow</b> edin
+      </div>
+    </div>
+  </header>
 
   <!-- CONTENT -->
-  <div class="container">
+  <main class="content">
+    <div class="wrap">
+      <div class="grid">
 
-    <div class="card">
-      <h2>✨ Kanalda nələr tapacaqsınız?</h2>
-      <ul class="list">
-        <li>👗 Qadın geyimləri üçün endirimli seçimlər</li>
-        <li>🎟️ Aktiv promo kodlar və kuponlar</li>
-        <li>🔥 Mövsümi kampaniyalar və top təkliflər</li>
-        <li>🛍️ Gündəlik trend kombin ideyaları</li>
-        <li>🔗 Birbaşa məhsul linkləri</li>
-      </ul>
+        <section class="card">
+          <div class="cardTitle">
+            <span class="pill">✨ Nələr paylaşılır?</span>
+          </div>
+
+          <ul class="list">
+            <li><span class="bullet">👗</span> Qadın geyimləri üçün endirimli seçimlər və “best price” tapıntılar</li>
+            <li><span class="bullet">🎟️</span> Aktiv promo kodlar və kuponlar (mövcud olduqca)</li>
+            <li><span class="bullet">🔥</span> Mövsümi kampaniyalar və sürətli xəbərdarlıqlar</li>
+            <li><span class="bullet">💄</span> Stilə uyğun seçimlər: zərif kombin ideyaları</li>
+            <li><span class="bullet">🔗</span> Birbaşa məhsul/kampaniya linkləri</li>
+          </ul>
+        </section>
+
+        <section class="card safe">
+          <div class="cardTitle">
+            <span class="pill">✅ Təhlükəsizlik</span>
+          </div>
+          <p class="muted">
+            Biz heç vaxt sizdən <b>kart məlumatı</b>, <b>şifrə</b>, <b>OTP</b> və ya bankla bağlı heç nə istəmirik.
+            Kanal yalnız endirim və kampaniya paylaşımı üçündür. Şübhəli “giriş/təsdiq” linkləri göndərilmir.
+          </p>
+        </section>
+
+        <section class="card">
+          <div class="cardTitle">
+            <span class="pill">📌 Əlaqə & Sosial</span>
+          </div>
+
+          <div class="contact">
+            <p class="muted">
+              Sualınız olarsa əlaqə saxlaya bilərsiniz:
+            </p>
+
+            <div class="linkRow">
+              <a class="linkBtn" href="mailto:nasibov.mahammad13@gmail.com">📩 nasibov.mahammad13@gmail.com</a>
+              <a class="linkBtn" href="https://www.instagram.com/hemiidiary/" target="_blank" rel="noopener">📷 Instagram: @hemiidiary</a>
+            </div>
+
+            <p class="muted" style="margin-top:8px;">
+              Qeyd: Qiymətlər və kampaniyalar Trendyol tərəfindən dəyişilə bilər.
+            </p>
+          </div>
+        </section>
+
+      </div>
     </div>
+  </main>
 
-    <div class="card safe">
-      <h2>✅ Təhlükəsizlik və Etibar</h2>
-      <p>
-        Biz heç vaxt sizdən kart məlumatı,
+  <footer>
+    © 2026 Trendyol Alış-Veriş Sirləri 💖 — Bu səhifə şəxsi məlumat toplamır.
+  </footer>
+
+</body>
+</html>

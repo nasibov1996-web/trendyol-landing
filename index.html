@@ -18,20 +18,20 @@
     }
 
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
       background: var(--bg);
       color: var(--text);
     }
 
+    /* HERO / BANNER */
     .hero{
       position: relative;
       overflow: hidden;
-      padding: 56px 18px 26px;
-      background:
-        radial-gradient(1200px 400px at 10% 0%, rgba(255,255,255,0.45), rgba(255,255,255,0) 60%),
-        linear-gradient(135deg, var(--orange), var(--pink));
+      padding: 60px 18px 35px;
+      background: linear-gradient(135deg, var(--orange), var(--pink));
       color: #fff;
       text-align: center;
     }
@@ -41,7 +41,7 @@
       content:"";
       position:absolute;
       border-radius:999px;
-      opacity: 0.25;
+      opacity: 0.18;
       background: rgba(255,255,255,0.9);
     }
     .hero::before{
@@ -62,8 +62,7 @@
       margin: 0;
       font-size: 30px;
       font-weight: 900;
-      letter-spacing: 0.2px;
-      line-height: 1.15;
+      line-height: 1.2;
     }
 
     .subtitle{
@@ -74,84 +73,96 @@
       opacity: 0.95;
     }
 
-    /* CTA */
+    /* PREMIUM CTA BUTTON */
     .ctaRow{
-      margin-top: 18px;
+      margin-top: 22px;
       display:flex;
       justify-content:center;
     }
+
     .cta{
-      display:inline-flex;
+      display:flex;
       align-items:center;
-      justify-content:center; /* center text */
-      padding: 14px 18px;
-      border-radius: 16px;
-      background: #fff;
-      color: var(--orange);
+      justify-content:center;
+      padding: 18px 22px;
+      border-radius: 18px;
+
+      background: linear-gradient(135deg, #25D366, #18a84f);
+      color: white;
+
+      font-size: 18px;
+      font-weight: 900;
       text-decoration:none;
-      font-weight: 800;
-      font-size: 16.5px;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.18);
-      transition: transform .15s ease, box-shadow .15s ease;
-      width: min(520px, 92vw);
-      text-align:center;
+
+      width: min(540px, 95vw);
+
+      box-shadow: 0 12px 28px rgba(37,211,102,0.35);
+      border: 2px solid rgba(255,255,255,0.35);
+
+      transition: 0.15s ease;
     }
+
     .cta:hover{
       transform: translateY(-2px);
-      box-shadow: 0 16px 30px rgba(0,0,0,0.22);
+      box-shadow: 0 16px 35px rgba(37,211,102,0.45);
+    }
+
+    .cta:active{
+      transform: translateY(1px);
     }
 
     .micro{
-      margin: 10px auto 0;
+      margin: 12px auto 0;
       font-size: 12.5px;
       opacity: 0.92;
     }
 
+    /* CONTENT */
     .content{
-      padding: 16px 18px 36px;
+      padding: 18px 18px 40px;
     }
 
     .grid{
       display:grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: -18px;
+      gap: 16px;
+      margin-top: -20px;
     }
 
     .card{
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 18px;
+      padding: 20px;
     }
 
     .cardTitle{
-      margin: 0 0 10px;
+      margin: 0 0 12px;
       font-size: 18px;
-      color: #111;
-      text-align: center; /* centered titles */
       font-weight: 900;
+      text-align: center;
+      color: #111;
     }
 
     .list{
-      margin: 10px 0 0;
+      margin: 0;
       padding: 0;
       list-style:none;
       display:grid;
       gap: 10px;
     }
+
     .list li{
       background: #fff6f0;
       border: 1px solid rgba(255,106,0,0.14);
       border-radius: 16px;
-      padding: 12px 12px;
+      padding: 12px;
       font-size: 14.5px;
       line-height: 1.5;
-      color: #2a2a2a;
       display:flex;
       gap:10px;
       align-items:flex-start;
     }
+
     .bullet{
       width: 28px; height: 28px;
       border-radius: 10px;
@@ -160,9 +171,9 @@
       justify-content:center;
       background: rgba(255,106,0,0.12);
       flex: 0 0 28px;
-      margin-top: 1px;
     }
 
+    /* SAFE BOX */
     .safe{
       background: #eafff1;
       border: 1px solid rgba(0,176,80,0.25);
@@ -173,13 +184,11 @@
       color: var(--muted);
       line-height: 1.65;
       font-size: 14px;
-      text-align: center; /* centered paragraphs in these sections */
+      text-align:center;
     }
 
+    /* CONTACT */
     .contact{
-      display:grid;
-      gap: 10px;
-      justify-items: center;
       text-align:center;
     }
 
@@ -187,13 +196,14 @@
       display:flex;
       flex-wrap:wrap;
       gap: 10px;
-      margin-top: 10px;
       justify-content:center;
+      margin-top: 12px;
     }
+
     .linkBtn{
       display:inline-flex;
       align-items:center;
-      gap:10px;
+      gap:8px;
       padding: 12px 14px;
       border-radius: 16px;
       background: #f7f7f7;
@@ -203,87 +213,95 @@
       font-weight: 700;
       font-size: 14px;
     }
-    .linkBtn:hover{ filter: brightness(0.98); }
 
     footer{
       text-align:center;
-      padding: 18px 14px 30px;
+      padding: 20px 14px 30px;
       color: #7a5a4b;
       font-size: 12.5px;
       line-height: 1.5;
     }
 
+    /* MOBILE */
     @media (max-width: 420px){
       h1{ font-size: 26px; }
       .subtitle{ font-size: 14.5px; }
-      .cta{ font-size: 16px; }
-      .card{ padding: 16px; }
+      .cta{ font-size: 16.5px; }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- HERO -->
   <header class="hero">
     <div class="wrap">
       <h1>Trendyol Alış-Veriş Sirləri 💖</h1>
 
       <p class="subtitle">
-        Qadın geyimləri üçün <b>endirim kodları</b>, <b>kampaniyalar</b> və seçilmiş
-        <b>endirimli məhsul</b> linklərini paylaşdığım WhatsApp kanalına qoşulun.
+        Qadın geyimləri üçün ən yaxşı <b>endirim kodları</b>, <b>kampaniyalar</b> və
+        seçilmiş <b>endirimli məhsul</b> linklərini paylaşdığım WhatsApp kanalına qoşulun.
       </p>
 
+      <!-- BUTTON TOP -->
       <div class="ctaRow">
-        <a class="cta" href="https://whatsapp.com/channel/0029Vb7RTuMGOj9sVCgCfm3J" target="_blank" rel="noopener">
-          Kanala Abunə Ol
+        <a class="cta"
+           href="https://whatsapp.com/channel/0029Vb7RTuMGOj9sVCgCfm3J"
+           target="_blank">
+          WhatsApp Kanalına Abunə Ol →
         </a>
       </div>
 
       <div class="micro">
-        Klikdən sonra WhatsApp-da <b>View Channel</b> → <b>Follow</b> edin
+        Klik etdikdən sonra WhatsApp-da <b>View Channel</b> → <b>Follow</b> edin
       </div>
     </div>
   </header>
 
+  <!-- CONTENT -->
   <main class="content">
     <div class="wrap">
       <div class="grid">
 
+        <!-- FEATURES -->
         <section class="card">
           <h2 class="cardTitle">Nələr paylaşılır?</h2>
 
           <ul class="list">
-            <li><span class="bullet">👗</span> Qadın geyimləri üçün endirimli seçimlər və “best price” tapıntılar</li>
-            <li><span class="bullet">🎟️</span> Aktiv promo kodlar və kuponlar (mövcud olduqca)</li>
-            <li><span class="bullet">🔥</span> Mövsümi kampaniyalar və sürətli xəbərdarlıqlar</li>
-            <li><span class="bullet">💄</span> Stilə uyğun seçimlər: zərif kombin ideyaları</li>
-            <li><span class="bullet">🔗</span> Birbaşa məhsul/kampaniya linkləri</li>
+            <li><span class="bullet">👗</span> Qadın geyimləri üçün endirimli seçimlər</li>
+            <li><span class="bullet">🎟️</span> Aktiv promo kodlar və kuponlar</li>
+            <li><span class="bullet">🔥</span> Mövsümi kampaniyalar və top təkliflər</li>
+            <li><span class="bullet">💄</span> Zərif kombin və stil tövsiyələri</li>
+            <li><span class="bullet">🔗</span> Birbaşa məhsul və kampaniya linkləri</li>
           </ul>
         </section>
 
+        <!-- SAFETY -->
         <section class="card safe">
           <h2 class="cardTitle">Təhlükəsizlik</h2>
           <p class="muted">
-            Biz heç vaxt sizdən <b>kart məlumatı</b>, <b>şifrə</b>, <b>OTP</b> istəmirik.
-            Kanal yalnız endirim və kampaniya paylaşımı üçündür. Şübhəli “giriş/təsdiq” linkləri göndərilmir.
+            Biz heç vaxt sizdən kart məlumatı, şifrə və ya OTP istəmirik.
+            Kanal yalnız endirim və kampaniya paylaşımı üçündür.
           </p>
         </section>
 
-        <section class="card">
+        <!-- CONTACT -->
+        <section class="card contact">
           <h2 class="cardTitle">Əlaqə</h2>
+          <p class="muted">Sualınız olarsa əlaqə saxlaya bilərsiniz:</p>
 
-          <div class="contact">
-            <p class="muted">Sualınız olarsa əlaqə saxlaya bilərsiniz:</p>
-
-            <div class="linkRow">
-              <a class="linkBtn" href="mailto:mhamida00@mail.ru">mhamida00@mail.ru</a>
-              <a class="linkBtn" href="https://www.instagram.com/hemiidiary/" target="_blank" rel="noopener">Instagram: @hemiidiary</a>
-            </div>
-
-            <p class="muted" style="margin-top:8px;">
-              Qeyd: Qiymətlər və kampaniyalar Trendyol tərəfindən dəyişilə bilər.
-            </p>
+          <div class="linkRow">
+            <a class="linkBtn" href="mailto:mhamida00@mail.ru">mhamida00@mail.ru</a>
+            <a class="linkBtn"
+               href="https://www.instagram.com/hemiidiary/"
+               target="_blank">
+              Instagram: @hemiidiary
+            </a>
           </div>
+
+          <p class="muted" style="margin-top:10px;">
+            Qeyd: Kampaniyalar Trendyol tərəfindən dəyişilə bilər.
+          </p>
         </section>
 
       </div>
